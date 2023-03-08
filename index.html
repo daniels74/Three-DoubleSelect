@@ -1,0 +1,105 @@
+<!-- 
+    HW 3 : Double Select
+Two slected boxes are linked. 
+By selecting an option in the first box, 
+you affect the option in the second box and the displayed title.
+Changing box two only changes the displayed title. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <script>
+      const bodyElement = document.body;
+      bodyElement.innerHTML = `
+      <div class="topLevel">
+        <h1 class="header" id="header">
+            Hello
+        </h1>    
+        <div class="selectors">   
+            <div class="selectorOne">
+                <h3>category</h3>
+                <select id="selone" onChange="updateSelect2(this.value,items)"></select>
+            </div>
+            <div class="selectorTwo">
+                <h3>item</h3>
+                <select id="seltwo" onChange="updateHeader(this.value)"></select>
+            </div>
+        </div>
+        </div>
+        `;
+      const items = [
+        {
+          name: "apple",
+          category: "fruit",
+        },
+        {
+          name: "Cucumber",
+          category: "vegetable",
+        },
+        {
+          name: "Banana",
+          category: "fruit",
+        },
+        {
+          name: "Celery",
+          category: "vegetable",
+        },
+        {
+          name: "orange",
+          category: "fruit",
+        },
+        {
+          name: "sausage",
+          category: "meat",
+        },
+        {
+          name: "bacon",
+          category: "meat",
+        },
+      ];
+      
+      let selOneData = ``;
+      let selTwoData = ``;
+      let titleName = ""
+      let copyFilter = [];
+      
+      items.forEach((element, i) => {
+        // Get title
+        if(i === 0) {
+            titleName = element.name;
+        }
+        let categoryCopy = false;
+        for (let category of copyFilter) {
+          if (element.category === category) {
+            categoryCopy = true;
+            break;
+          }
+        }
+        if (!categoryCopy) {
+          selOneData += `
+            <option value="${element.category}">${element.category}</option>
+            `;
+            copyFilter.push(element.category)
+        }
+        selTwoData += `
+            <option value="${element.name}">${element.name}</option>
+            `;
+      });
+
+      selector1 = document.getElementById("selone");
+      selector2 = document.getElementById("seltwo");
+      title = document.getElementById("header");
+
+      selector1.innerHTML = selOneData;
+      selector2.innerHTML = selTwoData;
+      title.innerHTML = titleName;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+body {
+  background-color: rgb(12, 12, 48);
+  margin: 0;
+  padding: 0;
+}
+
+.topLevel {
+  background-color: #032029;
+  color: black;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header {
+  background-color: rgb(128, 186, 163);
+  height: 20%;
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+}
+
+.selectors {
+  background-color: rgb(79, 141, 116);
+  position: relative;
+  height: 50%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 1rem;
+}
+
+.selectorOne {
+  background-color: rgb(128, 186, 163);
+  position: relative;
+  height: 50%;
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 1rem;
+}
+
+.selectorTwo {
+  background-color: rgb(128, 186, 163);
+  position: relative;
+  height: 50%;
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 1rem;
+}
